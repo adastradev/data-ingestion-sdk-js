@@ -1,4 +1,4 @@
 export interface IGlobalSettingsApiModel {
-    dataIngestionBucketArn: string;
+    dataIngestionBucketName: string;
     // TODO: add SNS topic for snapshotReceived
 }
