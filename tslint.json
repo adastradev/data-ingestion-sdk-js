@@ -12,7 +12,7 @@
     "space-before-function-paren": [ true, { "anonymous": "always", "named": "never", "asyncArrow": "always" } ],
     "indent": [ true, "spaces", 4 ],
     "interface-name": [ true, "always-prefix" ],
-    "variable-name": [ true, "ban-keywords", "check-format", "allow-leading-underscore"],
+    "variable-name": [ true, "ban-keywords", "check-format", "allow-leading-underscore", "allow-snake-case"],
     "ordered-imports": [true, {
       "import-sources-order": "any",
       "named-imports-order": "case-insensitive"
