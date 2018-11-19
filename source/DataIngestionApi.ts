@@ -3,6 +3,7 @@
 import { ApiCredentials, BearerTokenCredentials, IAMCredentials } from '@adastradev/serverless-discovery-sdk';
 import { AstraResponse } from './AstraResponse';
 import { ITenantSettingsApiModel } from './ITenantSettingsApiModel';
+import { IGlobalSettingsApiModel } from './IGlobalSettingsApiModel';
 
 // ignore type checking for private member aws-api-gateway-client for now
 // declare function require(name:string): any; // tslint:disable-line
@@ -59,7 +60,7 @@ export class DataIngestionApi {
         const method = 'GET';
         const body = { };
 
-        return this.invoke<ITenantSettingsApiModel>(params, pathTemplate, method, this.additionalParams, body);
+        return this.invoke<IGlobalSettingsApiModel>(params, pathTemplate, method, this.additionalParams, body);
     }
 
     public getTenantSettings() {
