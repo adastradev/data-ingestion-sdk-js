@@ -1,4 +1,8 @@
+// tslint:disable:max-line-length
+
 import { ApiCredentials, BearerTokenCredentials, IAMCredentials } from '@adastradev/serverless-discovery-sdk';
+import { AstraResponse } from './AstraResponse';
+import { ITenantSettingsApiModel } from './ITenantSettingsApiModel';
 
 // ignore type checking for private member aws-api-gateway-client for now
 // declare function require(name:string): any; // tslint:disable-line
@@ -55,7 +59,7 @@ export class DataIngestionApi {
         const method = 'GET';
         const body = { };
 
-        return this.apigClient.invokeApi(params, pathTemplate, method, this.additionalParams, body);
+        return this.invoke<ITenantSettingsApiModel>(params, pathTemplate, method, this.additionalParams, body);
     }
 
     public getTenantSettings() {
@@ -64,7 +68,18 @@ export class DataIngestionApi {
         const method = 'GET';
         const body = { };
 
-        return this.apigClient.invokeApi(params, pathTemplate, method, this.additionalParams, body);
+        return this.invoke<ITenantSettingsApiModel>(params, pathTemplate, method, this.additionalParams, body);
     }
 
+    private invoke<TResponseModel>(params, pathTemplate, method, additionalParams, body): AstraResponse<TResponseModel> {
+        let result: AstraResponse<TResponseModel>;
+        try {
+            const response = this.apigClient.invokeApi(params, pathTemplate, method, additionalParams, body);
+            result = new AstraResponse<TResponseModel>(response.data, response);
+        } catch (error) {
+            result = new AstraResponse<TResponseModel>(error.response.data, error.response);
+        }
+
+        return result;
+    }
 }
