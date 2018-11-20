@@ -72,15 +72,15 @@ export class DataIngestionApi {
         return this.invoke<ITenantSettingsApiModel>(params, pathTemplate, method, this.additionalParams, body);
     }
 
-    private invoke<TResponseModel>(params, pathTemplate, method, additionalParams, body): AstraResponse<TResponseModel> {
-        let result: AstraResponse<TResponseModel>;
-        try {
-            const response = this.apigClient.invokeApi(params, pathTemplate, method, additionalParams, body);
-            result = new AstraResponse<TResponseModel>(response.data, response);
-        } catch (error) {
-            result = new AstraResponse<TResponseModel>(error.response.data, error.response);
-        }
-
-        return result;
+    private invoke<TResponseModel>(params, pathTemplate, method, additionalParams, body): Promise<AstraResponse<TResponseModel>> {
+        return new Promise<AstraResponse<TResponseModel>>(async (resolve, reject) => {
+            try {
+                const response = await this.apigClient.invokeApi(params, pathTemplate, method, additionalParams, body);
+                resolve(new AstraResponse<TResponseModel>(response.data, response));
+            } catch (error) {
+                reject(error);
+                // result = new AstraResponse<TResponseModel>(error.response.data, error.response);
+            }
+        });
     }
 }
