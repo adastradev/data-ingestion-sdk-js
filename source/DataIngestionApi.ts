@@ -78,8 +78,8 @@ export class DataIngestionApi {
                 const response = await this.apigClient.invokeApi(params, pathTemplate, method, additionalParams, body);
                 resolve(new AstraResponse<TResponseModel>(response.data, response));
             } catch (error) {
+                // TODO: translate relevant axios information from error.response that isn't currently included in error.message
                 reject(error);
-                // result = new AstraResponse<TResponseModel>(error.response.data, error.response);
             }
         });
     }
