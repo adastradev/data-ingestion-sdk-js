@@ -5,6 +5,7 @@ export class SnapshotReceivedEventModel implements ISnapshotReceivedEventModel {
             public tenant_id: string,
             public integrationType: string,
             public snapshotBucketPath: string,
-            public completionTimeDescription: string) {
+            public completionTimeDescription: string,
+            public tenantName?: string) {
     }
 }
