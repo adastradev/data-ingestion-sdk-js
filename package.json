@@ -26,7 +26,7 @@
   "dependencies": {
     "@adastradev/serverless-discovery-sdk": "0.0.7",
     "aws-api-gateway-client": "git+https://github.com/aregier/aws-api-gateway-client.git#issue/67",
-    "axios": "^0.19.0-beta.1"
+    "axios": "^0.19.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
