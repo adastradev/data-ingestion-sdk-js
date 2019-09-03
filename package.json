@@ -25,8 +25,8 @@
   "homepage": "https://github.com/adastradev/data-ingestion-sdk-js#readme",
   "dependencies": {
     "@adastradev/serverless-discovery-sdk": "0.0.7",
-    "aws-api-gateway-client": "git+https://github.com/aregier/aws-api-gateway-client.git#issue/67",
-    "axios": "^0.19.0-beta.1"
+    "@adastradev/aws-api-gateway-client": "0.2.18-beta.3",
+    "axios": "^0.19.0"
   },
   "devDependencies": {
     "@types/chai": "^4.1.7",
