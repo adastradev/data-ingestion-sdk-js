@@ -4,6 +4,7 @@ import { ApiCredentials, BearerTokenCredentials, IAMCredentials } from '@adastra
 import { AstraResponse } from './AstraResponse';
 import { ITenantSettingsApiModel } from './ITenantSettingsApiModel';
 import { IGlobalSettingsApiModel } from './IGlobalSettingsApiModel';
+import { IIngestFailedApiModel } from './IIngestFailedApiModel';
 
 // ignore type checking for private member aws-api-gateway-client for now
 // declare function require(name:string): any; // tslint:disable-line
@@ -70,6 +71,19 @@ export class DataIngestionApi {
         const body = { };
 
         return this.invoke<ITenantSettingsApiModel>(params, pathTemplate, method, this.additionalParams, body);
+    }
+
+    public notifyFailure(tenantName: string, tenantID: string, error: string) {
+        const params = {};
+        const pathTemplate = '/ingestion/failure';
+        const method = 'POST';
+        const body = {
+            error,
+            tenantID,
+            tenantName
+        };
+
+        return this.invoke<IIngestFailedApiModel>(params, pathTemplate, method, this.additionalParams, body);
     }
 
     private invoke<TResponseModel>(params, pathTemplate, method, additionalParams, body): Promise<AstraResponse<TResponseModel>> {
