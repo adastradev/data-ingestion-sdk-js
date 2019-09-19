@@ -73,13 +73,12 @@ export class DataIngestionApi {
         return this.invoke<ITenantSettingsApiModel>(params, pathTemplate, method, this.additionalParams, body);
     }
 
-    public notifyFailure(tenantName: string, tenantID: string, error: string) {
+    public notifyFailure(tenantName: string, error: string) {
         const params = {};
         const pathTemplate = '/ingestion/failure';
         const method = 'POST';
         const body = {
             error,
-            tenantID,
             tenantName
         };
 
