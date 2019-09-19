@@ -4,7 +4,7 @@ import { ApiCredentials, BearerTokenCredentials, IAMCredentials } from '@adastra
 import { AstraResponse } from './AstraResponse';
 import { ITenantSettingsApiModel } from './ITenantSettingsApiModel';
 import { IGlobalSettingsApiModel } from './IGlobalSettingsApiModel';
-import { IIngestFailedApiModel, IIngestFailedApiResponse } from './IIngestFailedApiResponse';
+import { IIngestFailedApiResponse } from './IIngestFailedApiResponse';
 
 // ignore type checking for private member aws-api-gateway-client for now
 // declare function require(name:string): any; // tslint:disable-line
