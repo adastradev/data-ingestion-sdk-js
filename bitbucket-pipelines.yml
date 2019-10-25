@@ -14,7 +14,9 @@ pipelines:
     master:
       - step: *secure
       - step:
+          name: 'Build and Publish'
           script:
+            - npm ci
             - npm run build
 
             # Publish package
@@ -23,6 +25,8 @@ pipelines:
     feature/*:
       - step: *secure
       - step:
+          name: 'Build'
           script:
+            - npm ci
             - npm run build
 
