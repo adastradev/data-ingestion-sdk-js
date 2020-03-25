@@ -15,7 +15,6 @@
     "moduleResolution": "node",
     "module": "commonjs",
     "types": [
-      "mocha",
       "node"
     ]
   },
