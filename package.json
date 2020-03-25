@@ -1,13 +1,12 @@
 {
   "name": "@adastradev/data-ingestion-sdk",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Astra data ingestion SDK for JavaScript in the browser and Node.js",
   "main": "dist/index.js",
   "scripts": {
     "build": "./node_modules/.bin/tsc",
-    "test": "mocha -r ts-node/register test/unit/**/*.spec.ts",
-    "system-test": "mocha -r ts-node/register test/system/**/*.spec.ts",
-    "lint": "tslint {source,test}/**/*.ts"
+    "lint": "tslint {source}/**/*.ts",
+    "secure": "gulp secure"
   },
   "repository": {
     "type": "git",
@@ -24,21 +23,15 @@
   },
   "homepage": "https://github.com/adastradev/data-ingestion-sdk-js#readme",
   "dependencies": {
-    "@adastradev/serverless-discovery-sdk": "0.0.7",
-    "@adastradev/aws-api-gateway-client": "0.2.18-beta.3",
-    "axios": "^0.19.0"
+    "@adastradev/aws-api-gateway-client": "^1.0.1",
+    "@adastradev/serverless-discovery-sdk": "^2.1.1"
   },
   "devDependencies": {
-    "@types/chai": "^4.1.7",
-    "@types/mocha": "^5.2.5",
-    "@types/node": "^10.12.6",
-    "chai": "^4.2.0",
-    "ci-publish": "^1.3.1",
-    "mocha": "^5.2.0",
-    "sinon": "^7.1.1",
-    "ts-node": "^7.0.1",
-    "ts-sinon": "^1.0.12",
-    "tslint": "^5.11.0",
-    "typescript": "^3.1.6"
+    "@types/node": "^12.12.31",
+    "gulp": "^4.0.2",
+    "gulp-snyk": "^0.1.1",
+    "tslint": "^6.1.0",
+    "tslint-config-security": "^1.16.0",
+    "typescript": "^3.8.3"
   }
 }

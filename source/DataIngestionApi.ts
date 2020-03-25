@@ -21,7 +21,7 @@ export class DataIngestionApi {
     private apigClient: any;
     private additionalParams: any;
 
-    constructor(serviceEndpointUri: string, region: string, credentials: ApiCredentials) {
+    constructor ( serviceEndpointUri: string, region: string, credentials: ApiCredentials) {
         if (credentials.type === 'None') {
             this.apigClient = apigClientFactory.newClient({
                 accessKey: '',
