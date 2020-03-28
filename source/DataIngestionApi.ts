@@ -5,6 +5,9 @@ import { AstraResponse } from './AstraResponse';
 import { ITenantSettingsApiModel } from './ITenantSettingsApiModel';
 import { IGlobalSettingsApiModel } from './IGlobalSettingsApiModel';
 import { IIngestFailedApiResponse } from './IIngestFailedApiResponse';
+import { ICreateScheduleApiResponse } from './ICreateScheduleApiResponse';
+import { IGetSchedulesApiResponse } from './IGetSchedulesApiResponse';
+import { IDeleteScheduleApiResponse } from './IDeleteScheduleApiResponse';
 
 // ignore type checking for private member aws-api-gateway-client for now
 // declare function require(name:string): any; // tslint:disable-line
@@ -83,6 +86,37 @@ export class DataIngestionApi {
         };
 
         return this.invoke<IIngestFailedApiResponse>(params, pathTemplate, method, this.additionalParams, body);
+    }
+
+    public createSchedule(cronExpression: string) {
+        const params = {};
+        const pathTemplate = '/schedule';
+        const method = 'POST';
+        const body = {
+            cronExpression
+        };
+
+        return this.invoke<ICreateScheduleApiResponse>(params, pathTemplate, method, this.additionalParams, body);
+    }
+
+    public getSchedules() {
+        const params = {};
+        const pathTemplate = '/schedule';
+        const method = 'GET';
+        const body = {};
+
+        return this.invoke<IGetSchedulesApiResponse>(params, pathTemplate, method, this.additionalParams, body);
+    }
+
+    public deleteSchedule(name) {
+        const params = {};
+        const pathTemplate = '/schedule';
+        const method = 'DELETE';
+        const body = {
+            name
+        };
+
+        return this.invoke<IDeleteScheduleApiResponse>(params, pathTemplate, method, this.additionalParams, body);
     }
 
     private invoke<TResponseModel>(params, pathTemplate, method, additionalParams, body): Promise<AstraResponse<TResponseModel>> {
