@@ -24,7 +24,7 @@
   "homepage": "https://github.com/adastradev/data-ingestion-sdk-js#readme",
   "dependencies": {
     "@adastradev/aws-api-gateway-client": "^1.0.1",
-    "@adastradev/serverless-discovery-sdk": "^2.1.1"
+    "@adastradev/serverless-discovery-sdk": "^2.1.2"
   },
   "devDependencies": {
     "@types/node": "^12.12.31",
