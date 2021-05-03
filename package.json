@@ -1,6 +1,6 @@
 {
   "name": "@adastradev/data-ingestion-sdk",
-  "version": "2.0.4",
+  "version": "2.0.6",
   "description": "Astra data ingestion SDK for JavaScript in the browser and Node.js",
   "main": "dist/index.js",
   "scripts": {
@@ -24,7 +24,9 @@
   "homepage": "https://github.com/adastradev/data-ingestion-sdk-js#readme",
   "dependencies": {
     "@adastradev/aws-api-gateway-client": "^1.0.4",
-    "@adastradev/serverless-discovery-sdk": "^2.1.1"
+    "@adastradev/serverless-discovery-sdk": "^2.1.1",
+    "ini": "^1.3.6",
+    "node-pre-gyp": "^0.14.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.31",
