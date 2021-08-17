@@ -1,4 +1,17 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.13.5
-ignore: {}
+version: v1.19.0
+# ignores vulnerabilities until expiry date; change duration by modifying expiry date
+ignore:
+  SNYK-JS-TAR-1536528:
+    - node-pre-gyp > tar:
+        reason: None given
+        expires: '2021-09-16T18:02:27.564Z'
+  SNYK-JS-TAR-1536531:
+    - node-pre-gyp > tar:
+        reason: None given
+        expires: '2021-09-16T18:02:27.564Z'
+  SNYK-JS-TAR-1536758:
+    - node-pre-gyp > tar:
+        reason: None given
+        expires: '2021-09-16T18:02:27.564Z'
 patch: {}
