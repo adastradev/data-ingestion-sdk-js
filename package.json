@@ -4,10 +4,10 @@
   "description": "Astra data ingestion SDK for JavaScript in the browser and Node.js",
   "main": "dist/index.js",
   "scripts": {
-    "build": "./node_modules/.bin/tsc",
-    "lint": "tslint {source}/**/*.ts",
     "snykprotect": "snyk protect",
-    "snyktest": "snyk test --severity-threshold=medium"
+    "snyktest": "snyk test --severity-threshold=low",
+    "build": "./node_modules/.bin/tsc",
+    "lint": "tslint {source}/**/*.ts"
   },
   "repository": {
     "type": "git",
