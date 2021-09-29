@@ -10,6 +10,7 @@ pipelines:
               - npm ci
               - npm run lint
       - step:
+          size: 2x
           name: 'Build and Publish'
           script:
             - npm ci
@@ -26,6 +27,7 @@ pipelines:
               - npm ci
               - npm run lint
         - step:
+            size: 2x
             name: Build
             script:
               - npm ci
