@@ -6,7 +6,8 @@
   "scripts": {
     "build": "./node_modules/.bin/tsc",
     "lint": "tslint {source}/**/*.ts",
-    "secure": "gulp secure"
+    "snykprotect": "snyk protect",
+    "snyktest": "snyk test --severity-threshold=medium"
   },
   "repository": {
     "type": "git",
@@ -30,8 +31,6 @@
   },
   "devDependencies": {
     "@types/node": "^12.12.31",
-    "gulp": "^4.0.2",
-    "gulp-snyk": "^0.1.1",
     "tslint": "^6.1.0",
     "tslint-config-security": "^1.16.0",
     "typescript": "^3.8.3"

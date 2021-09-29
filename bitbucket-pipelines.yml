@@ -1,18 +1,14 @@
 image: node:10
 
-definitions:
-  steps:
-    - step: &secure
-        name: 'Audit and Secure'
-        script:
-          - npm ci
-          - npm run lint
-          - npm run secure
-
 pipelines:
   branches:
     master:
-      - step: *secure
+      - parallel:
+        - step:
+            name: Lint
+            script:
+              - npm ci
+              - npm run lint
       - step:
           name: 'Build and Publish'
           script:
@@ -23,10 +19,21 @@ pipelines:
             - npm publish --access=public
 
     feature/*:
-      - step: *secure
-      - step:
-          name: 'Build'
-          script:
-            - npm ci
-            - npm run build
+      - parallel:
+        - step:
+            name: Lint
+            script:
+              - npm ci
+              - npm run lint
+        - step:
+            name: Build
+            script:
+              - npm ci
+              - npm run snykprotect
+              - npm run build
+        - step:
+            name: Snyk Test
+            script:
+              - npm ci
+              - npm run snyktest 
 
