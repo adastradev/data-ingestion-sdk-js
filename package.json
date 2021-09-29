@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "snykprotect": "snyk protect",
-    "snyktest": "snyk test --severity-threshold=low",
+    "snyktest": "snyk test --severity-threshold=medium",
     "build": "./node_modules/.bin/tsc",
     "lint": "tslint {source}/**/*.ts"
   },
@@ -27,7 +27,8 @@
     "@adastradev/aws-api-gateway-client": "^1.0.4",
     "@adastradev/serverless-discovery-sdk": "^2.1.1",
     "ini": "^1.3.6",
-    "node-pre-gyp": "^0.14.0"
+    "node-pre-gyp": "^0.14.0",
+    "snyk": "^1.727.0"
   },
   "devDependencies": {
     "@types/node": "^12.12.31",
